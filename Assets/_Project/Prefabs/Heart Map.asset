@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9910e0d1c6d9947939611657557f29, type: 3}
+  m_Name: Heart Map
+  m_EditorClassIdentifier: 
+  is2DLevel: 0
+  colorPalette: {fileID: 2800000, guid: feb163b0bf66f3b4c92d8cb8c731dd2e, type: 3}
+  maps:
+  - map: {fileID: 2800000, guid: aa43c9c42197e084ebfb23cf875c05ab, type: 3}
+    layerName: Default
+  colorArray_2D: []
+  colorArray_3D:
+  - color: {r: 1, g: 0, b: 0.015686275, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: 80228f831759b8d4d870e45e9133ca72, type: 3}
+      proportion: 0
