@@ -10,6 +10,8 @@ public enum PlayerID { PlayerA, PlayerB }
 public enum PlayerState { Walking, Holding, Aiming }
 public class O_Player : MonoBehaviour
 {
+    public bool isKeyBoardControl;
+
     public PlayerID thisPlayer;
     public PlayerState currentState;
     public float moveSpeed;
@@ -46,12 +48,32 @@ public class O_Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isKeyBoardControl) KeyBoardInputRecevier();
+
         if (isDPadMove) Action_GridMove();
         else Action_Move();
 
         SelectedTargetingTile();
         UpdateAimingLine();
         //PickUpTile();
+    }
+
+    private void KeyBoardInputRecevier()
+    {
+        gridMoveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        RaycastHit hit;
+        Ray ray= Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray,out hit))
+        {
+            Vector2 tempValue = new Vector2((hit.point - transform.position).x, (hit.point - transform.position).z).normalized;
+            if (Mathf.Abs(tempValue.x) + Mathf.Abs(tempValue.y) > 0.5f)
+                aimDirection = tempValue;
+            else aimDirection = Vector2.zero;
+        }
+
+        if (Input.GetMouseButtonDown(0) && currentState == PlayerState.Walking) PickUpTile();
+        if (Input.GetMouseButtonDown(1) && currentState == PlayerState.Aiming) StartCoroutine(LaunchTile());
     }
 
     public void Action_Move()
