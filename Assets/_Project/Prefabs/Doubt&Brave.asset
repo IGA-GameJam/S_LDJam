@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9910e0d1c6d9947939611657557f29, type: 3}
+  m_Name: Doubt&Brave
+  m_EditorClassIdentifier: 
+  is2DLevel: 0
+  colorPalette: {fileID: 2800000, guid: 78953fd82a8b1e1479a68c992d376b66, type: 3}
+  maps:
+  - map: {fileID: 2800000, guid: a8790b82e6a91024a8d33ffd17c1cb86, type: 3}
+    layerName: Default
+  colorArray_2D: []
+  colorArray_3D:
+  - color: {r: 0.9647059, g: 0.46666667, b: 0.4745098, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: 057621b0b45f9364495f9976aea88a01, type: 3}
+      proportion: 0
+  - color: {r: 1, g: 0, b: 0.015686275, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: 78ad354ed0c6fb24099fef551bd2787b, type: 3}
+      proportion: 0
+  - color: {r: 0, g: 0.9490196, b: 1, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: ecbb635b082080049904340d1e228aaa, type: 3}
+      proportion: 0
+  - color: {r: 0, g: 0.03137255, b: 1, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: cfda24f6f4222924aae28c09c1e8409f, type: 3}
+      proportion: 0

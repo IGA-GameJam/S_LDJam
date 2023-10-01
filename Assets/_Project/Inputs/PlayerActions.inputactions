@@ -15,6 +15,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Launch",
+                    "type": "Button",
+                    "id": "d45db09c-98b1-47b0-a566-92a0004d78f1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Move",
                     "type": "Value",
                     "id": "040c3103-94ad-491e-9d6b-b4c0f16de587",
@@ -84,6 +93,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "GridMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b9132b4a-abcb-4795-92a9-71bee5a09dd9",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Launch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
