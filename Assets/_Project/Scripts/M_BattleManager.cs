@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class M_BattleManager : MonoBehaviour
 {
@@ -34,7 +36,8 @@ public class M_BattleManager : MonoBehaviour
 
     public void OnPlayerLeft()
     {
-
+        //Debug.Log("Player Left");
+        //GetComponent<PlayerInputManager>().enabled = false;
     }
 
     public void AssignTiles()
@@ -84,15 +87,18 @@ public class M_BattleManager : MonoBehaviour
         foreach (Transform tile in tileListA) tile.GetComponent<O_Tile>().BindingPlayer(playerA);
         foreach (Transform tile in tileListB) tile.GetComponent<O_Tile>().BindingPlayer(playerB);
         isGameStart = true;
+        playerA.ActiveLine();
+        playerB.ActiveLine();
     }
 
    public void GameEnd(PlayerID playerOnLose)
     {
         isGameStart = false;
-        isGameEnd = true;
-        winnerPanel.transform.Find("Light").localScale = playerOnLose == PlayerID.PlayerB ? Vector3.zero : new Vector3(-1, 1, 1);
-        winnerPanel.transform.Find("Light").GetChild(0).localScale = playerOnLose == PlayerID.PlayerB ? Vector3.zero : new Vector3(-1, 1, 1);
-        DOTween.To(() => winnerPanel.alpha, x => winnerPanel.alpha = x, 1, 1);
+        winnerPanel.transform.Find("Player A").GetComponent<Image>().sprite = M_BattelRepo.instance.playerPortrait[0];
+        winnerPanel.transform.Find("Player B").GetComponent<Image>().sprite = M_BattelRepo.instance.playerPortrait[1];
+        winnerPanel.transform.Find("Light").localScale = playerOnLose == PlayerID.PlayerB ? Vector3.one : new Vector3(-1, 1, 1);
+        winnerPanel.transform.Find("Light").GetChild(0).localScale = playerOnLose == PlayerID.PlayerB ? Vector3.one : new Vector3(-1, 1, 1);
+        DOTween.To(() => winnerPanel.alpha, x => winnerPanel.alpha = x, 1, 1).OnComplete(()=>isGameEnd = true);
         Debug.Log(playerOnLose + " is Lose");
     }
 }

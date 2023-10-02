@@ -21,7 +21,7 @@ public class M_Global : MonoBehaviour
 
     private void Start()
     {
-        string[] world1BgAudio = new string[1] { "Dark World" };
-        M_Audio.PlayLoopAudio(world1BgAudio);
+        //string[] world1BgAudio = new string[1] { "OpenPage" };
+        //M_Audio.PlayLoopAudio(world1BgAudio);
     }
 }

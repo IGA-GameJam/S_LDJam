@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: All Audio
   m_EditorClassIdentifier: 
   audio_Loop:
-  - soundName: Regular World
-    audioClip: {fileID: 8300000, guid: dbadff6077dcf544e9c8654654e006c6, type: 3}
-    volume: 1
-  - soundName: Dark World
-    audioClip: {fileID: 8300000, guid: 87ee4faa1c597574991178f2ba1e6d28, type: 3}
-    volume: 1
+  - soundName: OpenPage
+    audioClip: {fileID: 8300000, guid: 89153725f35c1d945b0efdde1d5a8fda, type: 3}
+    volume: 0.6
+  - soundName: Level
+    audioClip: {fileID: 8300000, guid: bf688e7af1360cb46b3126fb4e54a750, type: 3}
+    volume: 0.6
+  - soundName: Combat
+    audioClip: {fileID: 8300000, guid: 9c9a673c13d00eb4298c5b1dda827503, type: 3}
+    volume: 0.6
   audio_OneShot:
   - soundName: Click
     audioClip: {fileID: 8300000, guid: 6a7d02e4d80c2c44cafe8984770d8d7b, type: 3}

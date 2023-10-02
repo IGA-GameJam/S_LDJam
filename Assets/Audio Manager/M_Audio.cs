@@ -20,6 +20,7 @@ public static class M_Audio
             currentSceneAudio = null;
         }
         Transform sceneAudioParent = new GameObject("Sound Loop Parent").transform;
+      
         foreach (string audio in _AudioName)
         {
             PlayLoopSoundFadeIn(audio);

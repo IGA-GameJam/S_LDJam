@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 1998604081195224221, guid: b1dbcd21cfc245e4bbb4fa4cb2548487, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 77c895969ba86b547ad9d5feba22cb1b, type: 2}
+      objectReference: {fileID: 2100000, guid: 03a226316e8afac4f9efd50fe9948431, type: 2}
     - target: {fileID: 4353871014896326119, guid: b1dbcd21cfc245e4bbb4fa4cb2548487, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -63,11 +63,11 @@ PrefabInstance:
     - target: {fileID: 7726641850460370003, guid: b1dbcd21cfc245e4bbb4fa4cb2548487, type: 3}
       propertyPath: inRangeTex
       value: 
-      objectReference: {fileID: 2800000, guid: ea02e130b885cf347ac4c7bc2352d4ee, type: 3}
+      objectReference: {fileID: 2800000, guid: 2515ad6d6cca1e644b62111dc86ed710, type: 3}
     - target: {fileID: 7726641850460370003, guid: b1dbcd21cfc245e4bbb4fa4cb2548487, type: 3}
       propertyPath: outRangeTex
       value: 
-      objectReference: {fileID: 2800000, guid: af56618600dd1434ebc134346721e99d, type: 3}
+      objectReference: {fileID: 2800000, guid: 58cd3bf8fced4d243adb45fa2950b258, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

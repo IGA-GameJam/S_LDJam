@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9910e0d1c6d9947939611657557f29, type: 3}
+  m_Name: Level 4
+  m_EditorClassIdentifier: 
+  is2DLevel: 0
+  colorPalette: {fileID: 2800000, guid: 3d034f0909137b548a4b8583b6a9de38, type: 3}
+  maps:
+  - map: {fileID: 2800000, guid: 984af236aa9e74147b0455cb1584880e, type: 3}
+    layerName: Default
+  colorArray_2D: []
+  colorArray_3D:
+  - color: {r: 0.77254903, g: 0.76862746, b: 0.29803923, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: ccf7d4aa05a4cbd448182c4845de2c62, type: 3}
+      proportion: 0
+  - color: {r: 0.9843137, g: 0.81960785, b: 0.0627451, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: f1cac63a8bab0b4408a3de6fffb3a119, type: 3}
+      proportion: 0
+  - color: {r: 0.8039216, g: 0.5294118, b: 0.3254902, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: c7f42251a99f21340b01e47e2ea97fd7, type: 3}
+      proportion: 0
+  - color: {r: 0.6862745, g: 0.93333334, b: 0.015686275, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: adaf9363876659445a5cbf68e7601d77, type: 3}
+      proportion: 0
+  - color: {r: 0.011764706, g: 0.007843138, b: 0.007843138, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: 56c1677a14645b14e95de2fb514fb790, type: 3}
+      proportion: 0
+  - color: {r: 0.14901961, g: 0.14901961, b: 0.27450982, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: 2f4740c49d235054085d83d38b37af70, type: 3}
+      proportion: 0
+  - color: {r: 0.3764706, g: 0.20392157, b: 0.3647059, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: 192680ee17305004a996e19cd806dd70, type: 3}
+      proportion: 0
+  - color: {r: 0.27058825, g: 0.12156863, b: 0.12156863, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: 01b61ff9f8373334eac11514a7311955, type: 3}
+      proportion: 0

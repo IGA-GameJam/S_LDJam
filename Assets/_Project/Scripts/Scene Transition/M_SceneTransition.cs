@@ -30,10 +30,17 @@ namespace Jahaha.SceneTransition
 
         public void TriggerTransition(int _targetSceneIndex)
         {
-
             targetSceneIndex = _targetSceneIndex;
             int randomType = UnityEngine.Random.Range(0, effectArray.Length);
             effectArray[randomType].ExcuteEffect();
+
+            //string[] targetLoop = _targetSceneIndex == 1? new string[1] { "Level" }: new string[1] { "Combat" };
+            //M_Audio.PlayLoopAudio(targetLoop);
+        }
+
+        public void DestroryUnDestroyable( GameObject target)
+        {
+            Destroy(target, 0.4f);
         }
     }
 

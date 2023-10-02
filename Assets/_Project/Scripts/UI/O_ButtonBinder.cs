@@ -12,6 +12,7 @@ public class O_ButtonBinder : MonoBehaviour,IPointerClickHandler,IPointerEnterHa
     public Sprite sprite_Deselected;
     public Sprite sprite_Hovering;
     public ButtonType type;
+    private bool isOpen;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,8 +49,24 @@ public class O_ButtonBinder : MonoBehaviour,IPointerClickHandler,IPointerEnterHa
                 M_SceneTransition.instance.TriggerTransition(5);
                 break;
             case ButtonType.Tutorial:
-              
+                if (isOpen) GuideBookStateChange(false);
+                else GuideBookStateChange(true);
                 break;
+        }
+    }
+
+    private void GuideBookStateChange(bool target)
+    {
+        Transform trans = GameObject.Find("Canvas").transform.Find("Guide");
+        if (target)
+        {
+            isOpen = true;
+            trans.DOScale(new Vector3(-1,1,1), 0.6f);
+        }
+        else
+        {
+            isOpen = false;
+            trans.DOScale(Vector3.zero, 0.6f);
         }
     }
 

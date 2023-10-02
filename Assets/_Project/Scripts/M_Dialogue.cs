@@ -44,6 +44,7 @@ public class M_Dialogue : MonoBehaviour
         isOnConversation = true;
         DOTween.To(() => playerA.anchoredPosition, x => playerA.anchoredPosition = x, new Vector2(0, 0), moveTime);
         DOTween.To(() => playerB.anchoredPosition, x => playerB.anchoredPosition = x, new Vector2(0, 0), moveTime).OnComplete(Talking);
+        dialogueA.transform.parent.parent.Find("Intro").transform.DOScale(Vector3.zero, 0.7f);
     }
 
     public void TheTalkingEnd()

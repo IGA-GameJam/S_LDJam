@@ -727,6 +727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre_3Points Curve LR
       objectReference: {fileID: 0}
+    - target: {fileID: 4203525723039595216, guid: e285f195412f4554b911f2033e285b2c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6218881663651667818, guid: e285f195412f4554b911f2033e285b2c, type: 3}
       propertyPath: m_Positions.Array.size
       value: 13

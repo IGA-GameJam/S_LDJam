@@ -58,6 +58,11 @@ public class O_Player : MonoBehaviour
         }
     }
 
+    public void ActiveLine()
+    {
+        transform.parent.GetComponentInChildren<O_3PointsCurveLR>().gameObject.SetActive(true);
+    }
+
     public void Action_Move()
     {
         transform.position += new Vector3(moveDirection.x, 0, moveDirection.y) * Time.deltaTime * moveSpeed;
@@ -93,7 +98,7 @@ public class O_Player : MonoBehaviour
         if (!FindObjectOfType<M_Dialogue>().isOnConversation) Debug.Log("das");
         else FindObjectOfType<M_Dialogue>().TryTalk(thisPlayer);
 
-        if (bm.isGameEnd) { M_SceneTransition.instance.TriggerTransition(1); }
+        if (bm.isGameEnd) { M_SceneTransition.instance.TriggerTransition(1); M_SceneTransition.instance.DestroryUnDestroyable(M_BattelRepo.instance.gameObject); }
     }
 
     public void OnMove(InputAction.CallbackContext context)

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9910e0d1c6d9947939611657557f29, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: 
+  is2DLevel: 0
+  colorPalette: {fileID: 2800000, guid: ad4a20ba80e5d83419eb8ed53b06a156, type: 3}
+  maps:
+  - map: {fileID: 2800000, guid: e8ab672d1d85aa74a9206178c7f60b02, type: 3}
+    layerName: Default
+  colorArray_2D: []
+  colorArray_3D:
+  - color: {r: 0.3529412, g: 1, b: 0.22745098, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: 55570a67d9660d2448df9278a31ae727, type: 3}
+      proportion: 0
+  - color: {r: 0.2509804, g: 0.41960785, b: 0.21568628, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: 4352359a2d38cca4cad290c7d386abe1, type: 3}
+      proportion: 0
+  - color: {r: 0.54901963, g: 0.78431374, b: 0.5058824, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: 01653296d17a46947a08962030e0056c, type: 3}
+      proportion: 0
+  - color: {r: 0.6117647, g: 1, b: 0.53333336, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: 08eb3b164b37c2347b838dfb66ea40d7, type: 3}
+      proportion: 0
+  - color: {r: 0.7019608, g: 0, b: 0, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: 521bd89182b48ff40a090bc16f3f9aab, type: 3}
+      proportion: 0
+  - color: {r: 1, g: 0.40392157, b: 0.40392157, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: 65d3d5de7263a7442a190d3cb10e1bc1, type: 3}
+      proportion: 0
+  - color: {r: 1, g: 0, b: 0, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: 66ebc995104af23478baa5f66dadb135, type: 3}
+      proportion: 0
+  - color: {r: 0.53333336, g: 0.31764707, b: 0.31764707, a: 1}
+    colorObjs:
+    - model: {fileID: 1933744232239054529, guid: 8c65fc60d5f2e9f4d85f39ec69b918d3, type: 3}
+      proportion: 0
