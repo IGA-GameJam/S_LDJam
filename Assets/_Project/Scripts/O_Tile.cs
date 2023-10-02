@@ -15,6 +15,8 @@ public class O_Tile : MonoBehaviour
     private float flySpeed=15;
     private List<Vector3> path = new List<Vector3> ();
     private int moveIndex = 0;
+    public Texture inRangeTex;
+    public Texture outRangeTex;
 
     void Start()
     {
@@ -57,15 +59,20 @@ public class O_Tile : MonoBehaviour
             switch (currentState)
             {
                 case TileState.Normal:
-                    GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+                    if (outRangeTex != null) GetComponentInChildren<MeshRenderer>().material.mainTexture = outRangeTex;
+                    else GetComponentInChildren<MeshRenderer>().material.color = Color.white;
                     break;
                 case TileState.InRange:
-                    GetComponentInChildren<MeshRenderer>().material.color = Color.cyan;
+                    if (inRangeTex != null) GetComponentInChildren<MeshRenderer>().material.mainTexture = inRangeTex;
+                    else GetComponentInChildren<MeshRenderer>().material.color = Color.cyan;
+                    //GetComponentInChildren<MeshRenderer>().material.color = Color.cyan;
                     break;
                 case TileState.Selected:
                     break;
                 case TileState.OnHold:
-                    GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+                    if (outRangeTex != null) GetComponentInChildren<MeshRenderer>().material.mainTexture = outRangeTex;
+                    else GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+                    //GetComponentInChildren<MeshRenderer>().material.color = Color.white;
                     isPermited = false;
                     Sequence s = DOTween.Sequence();
                     s.Append(transform.DOMoveY(-0.3f, 0.1f));

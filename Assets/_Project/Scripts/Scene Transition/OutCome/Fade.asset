@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9100546cde10b904c890b6fab3588e11, type: 3}
+  m_Name: Fade
+  m_EditorClassIdentifier: 
+  transitionTime: 2
+  prefab: {fileID: 4839462537031475396, guid: f597652d4e912bc409da363278339236, type: 3}
