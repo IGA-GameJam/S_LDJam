@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198196a9fca3f4741a671aa53ce1c054, type: 3}
+  m_Name: All Audio
+  m_EditorClassIdentifier: 
+  audio_Loop:
+  - soundName: Regular World
+    audioClip: {fileID: 8300000, guid: dbadff6077dcf544e9c8654654e006c6, type: 3}
+    volume: 1
+  - soundName: Dark World
+    audioClip: {fileID: 8300000, guid: 87ee4faa1c597574991178f2ba1e6d28, type: 3}
+    volume: 1
+  audio_OneShot:
+  - soundName: Click
+    audioClip: {fileID: 8300000, guid: 6a7d02e4d80c2c44cafe8984770d8d7b, type: 3}
+    volume: 1
+  - soundName: Death
+    audioClip: {fileID: 8300000, guid: 8bfe601cf2a496d478877905d2fecba7, type: 3}
+    volume: 1
+  - soundName: Hold
+    audioClip: {fileID: 8300000, guid: cd6ecb34fd9c22844ae410673b9eef60, type: 3}
+    volume: 1
+  - soundName: Land
+    audioClip: {fileID: 8300000, guid: 52a083eb1a550de4e999427921db74f0, type: 3}
+    volume: 1
+  - soundName: Pick
+    audioClip: {fileID: 8300000, guid: f70ea09931faaef4fa5f7e2c2646ea8c, type: 3}
+    volume: 1
+  - soundName: Shoot
+    audioClip: {fileID: 8300000, guid: b83242e47db42d04289f0f28326e1490, type: 3}
+    volume: 1
+  - soundName: Walk
+    audioClip: {fileID: 8300000, guid: a40f0e0c53dbcbc40b308469fc2bb805, type: 3}
+    volume: 1
+  - soundName: Miss
+    audioClip: {fileID: 8300000, guid: 0fe7e00e3ff504b45b3e95501cf28145, type: 3}
+    volume: 1
+  - soundName: PopOut 1
+    audioClip: {fileID: 8300000, guid: b6c1322d50bed6e4f925fc290d7b6a38, type: 3}
+    volume: 0.5
+  - soundName: PopOut 2
+    audioClip: {fileID: 8300000, guid: 8db385981eb92ca4e8229fbf3efdf82d, type: 3}
+    volume: 0.5

@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4442e8a61ffc0944ea981c83352de32a, type: 3}
+  m_Name: Level4 Dialogue
+  m_EditorClassIdentifier: 
+  playerAName: Boba
+  playerBName: Gigi
+  dialogues:
+  - playerID: 1
+    dialogue: Hah! How powerful I am! My wings are spotless white, with each feather
+      reflecting the radiance of the sun!
+  - playerID: 0
+    dialogue: (floating). . .
+  - playerID: 1
+    dialogue: How extraordinary I am! God carefully carved every inch of my body
+      so that I could exhibit my very shape to the world! Every morning I feel like
+      I'm reborn!
+  - playerID: 0
+    dialogue: (floating). . . Yes, you are so perfect. . .
+  - playerID: 1
+    dialogue: Yes, tremendous energy fills my body! Come with me, now! I feel like
+      I can do anything! I can jump over the highest mountains and the deepest canyons
+      with a single leap. I can run with no shackles, as if I never have to stop.
+  - playerID: 0
+    dialogue: "(floating). . . But we may not be able to\u2014\u2014"
+  - playerID: 1
+    dialogue: Shut up! Why did you say this? How could you say that! Look around
+      you! Everyone is awaiting me! My wings are spotless white, my energy is endless,
+      I am so perfect!
+  - playerID: 0
+    dialogue: (floating). . . Yes, you are so perfect, I am far inferior to you,
+      you seem to be always shining, and I am the shadow under your shadow. But maybe,
+      maybe, maybe we are not able to do that. Maybe what you are talking about is
+      just an imagination and illusion.
+  - playerID: 1
+    dialogue: "You can\u2019t say that! You can't say that! Every word you spit out
+      is stained on my wings like oil, and I can\u2019t wash it off no matter how
+      hard I try!"
+  - playerID: 0
+    dialogue: (floating). . . But we are not able to do that. . . I am not able to
+      do that. . .
+  - playerID: 1
+    dialogue: Go away! You go away! Go back to wherever you come from! I don't want
+      to see you anymore! I don't want to hear from you anymore! You're just making
+      me sick! You go away!
+  - playerID: 0
+    dialogue: (floating). . . I am not able to do that. . .

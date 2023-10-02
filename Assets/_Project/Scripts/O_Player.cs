@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 using MoreMountains.Feedbacks;
+using Jahaha.SceneTransition;
 
 public enum PlayerID { PlayerA, PlayerB }
 public enum PlayerState { Walking, Holding, Aiming }
@@ -35,23 +36,26 @@ public class O_Player : MonoBehaviour
 
     public List<Transform> inRangeTiles = new List<Transform>();
     private Transform currentTargetTile;
+    private M_BattleManager bm;
 
 
     void Start()
     {
         detectionRange = GetComponentInChildren<BoxCollider>().size.x;
         moveRange = FindObjectOfType<TextureReader>().textureWidth / 100;
+        bm = FindObjectOfType<M_BattleManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (isDPadMove) Action_GridMove();
-        else Action_Move();
+        if (bm.isGameStart)
+        {
+            if (isDPadMove) Action_GridMove();
+            else Action_Move();
 
-        SelectedTargetingTile();
-        UpdateAimingLine();
-        //PickUpTile();
+            SelectedTargetingTile();
+            UpdateAimingLine();
+        }
     }
 
     public void Action_Move()
@@ -63,14 +67,18 @@ public class O_Player : MonoBehaviour
     {
         if(!isOnMove && gridMoveDirection != Vector2.zero)
         {
-            Vector3 targetPos = new Vector3(gridMoveDirection.x, 0, gridMoveDirection.y) * moveRange + transform.position;
+            if (Mathf.Abs(gridMoveDirection.x) < Mathf.Abs(gridMoveDirection.y)) gridMoveDirection = new Vector2(0, gridMoveDirection.y);
+            else gridMoveDirection = new Vector2(gridMoveDirection.x, 0);
 
+            Vector3 targetPos = new Vector3(gridMoveDirection.x, 0, gridMoveDirection.y) * moveRange + transform.position;
             bool isMovable = GetComponentInChildren<O_TileDetection>().DetectTowardsTileMovable(targetPos);
             if (isMovable)
             {
                 isOnMove = true;
                 transform.DOMove(targetPos, gridMoveSpeed).OnComplete(() => isOnMove = false);
                 mmf_Move.PlayFeedbacks();
+                gridMoveDirection = Vector2.zero;
+                M_Audio.PlayOneShotAudio("Walk");
             }
             else
             {
@@ -80,14 +88,38 @@ public class O_Player : MonoBehaviour
         }
     }
 
+    public void OnPressDown(InputAction.CallbackContext context)
+    {
+        if (!FindObjectOfType<M_Dialogue>().isOnConversation) Debug.Log("das");
+        else FindObjectOfType<M_Dialogue>().TryTalk(thisPlayer);
+
+        if (bm.isGameEnd) { M_SceneTransition.instance.TriggerTransition(1); }
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
-        moveDirection = context.ReadValue<Vector2>();
+        if (!isDPadMove) moveDirection = context.ReadValue<Vector2>();
+        else
+        {
+            //if(context.phase == InputActionPhase.Performed)
+            //{
+            //    Vector2 tempValue = context.ReadValue<Vector2>().normalized;
+            //    if (Mathf.Abs(tempValue.x) > 0.9f || Mathf.Abs(tempValue.y) > 0.9f)
+            //    {
+            //        if (Mathf.Abs(tempValue.x) > Mathf.Abs(tempValue.y)) gridMoveDirection = new Vector3(tempValue.x > 0 ? 1 : -1, 0);
+            //        else gridMoveDirection = new Vector3(0, tempValue.y > 0 ? 1 : -1);
+            //    }
+            //}
+
+                //gridMoveDirection = context.ReadValue<Vector2>().normalized;
+
+            //gridMoveDirection = context.ReadValue<Vector2>();
+        }
     }
 
     public void OnGridMove(InputAction.CallbackContext context)
     {
-        gridMoveDirection = context.ReadValue<Vector2>();
+        gridMoveDirection = context.ReadValue<Vector2>().normalized;
     }
 
     public void OnAim(InputAction.CallbackContext context)
@@ -112,11 +144,16 @@ public class O_Player : MonoBehaviour
     void PickUpTile()
     {
         //Debug.Log("Pressed");
-        if (currentTargetTile != null && currentState == PlayerState.Walking)
+        if (currentTargetTile != null && currentState == PlayerState.Walking && inRangeTiles.Contains(currentTargetTile))
         {
-            currentTargetTile.GetComponent<O_Tile>().StateChangeTo(TileState.OnHold);
-            //currentTargetTile = null;
-            currentState = PlayerState.Holding;
+            if (currentTargetTile.GetComponent<O_Tile>().isPermited)
+            {
+                //M_Audio.PlayOneShotAudio("Hold");
+                currentTargetTile.GetComponent<O_Tile>().StateChangeTo(TileState.OnHold);
+                //currentTargetTile = null;
+                currentState = PlayerState.Holding;
+            }
+
         }
     }
 
@@ -198,5 +235,16 @@ public class O_Player : MonoBehaviour
         currentTargetTile = null;
         currentState = PlayerState.Walking;
         yield return null;
+    }
+
+    public void RemoveCurrentSelectedTile(O_Tile tileToEnsure)
+    {
+        if (inRangeTiles.Contains(tileToEnsure.transform))
+        {
+            Debug.Log("Entered");
+            GetComponentInChildren<O_TileDetection>().inRangeTiles.Remove(tileToEnsure.transform);
+            inRangeTiles.Remove(tileToEnsure.transform);
+            //currentTargetTile = null;
+        }
     }
 }

@@ -20,11 +20,16 @@ public class O_Tile : MonoBehaviour
 
     void Start()
     {
-        foreach(O_Player player in FindObjectsOfType<O_Player>())
-        {
-            if (player.thisPlayer == belonging) relatedPlayer = player.transform; break;
-        }
+        //foreach(O_Player player in FindObjectsOfType<O_Player>())
+        //{
+        //    if (player.thisPlayer == belonging) relatedPlayer = player.transform; break;
+        //}
  
+    }
+
+    public void BindingPlayer(O_Player targetPlayer)
+    {
+        relatedPlayer = targetPlayer.transform;
     }
 
     void Update()
@@ -76,7 +81,9 @@ public class O_Tile : MonoBehaviour
                     isPermited = false;
                     Sequence s = DOTween.Sequence();
                     s.Append(transform.DOMoveY(-0.3f, 0.1f));
+                    s.AppendCallback(() => M_Audio.PlayOneShotAudio("Pick"));
                     s.Append(transform.DOMoveY(yAboveValue, 0.1f));
+                    s.AppendCallback(() => M_Audio.PlayOneShotAudio("Hold"));
                     s.AppendInterval(0.1f);
                     s.AppendCallback(() => currentState = TileState.OnFollow);
                     s.AppendCallback(() => relatedPlayer.GetComponent<O_Player>().currentState = PlayerState.Holding);
@@ -96,6 +103,7 @@ public class O_Tile : MonoBehaviour
         path.Clear();
         foreach (Vector3 item in pathToAssign) path.Add(item);
         currentState = TileState.OnFly;
+        M_Audio.PlayOneShotAudio("Shoot");
         isPermited = false;
     }
 
@@ -110,7 +118,7 @@ public class O_Tile : MonoBehaviour
            
             if (collider.GetComponent<O_Tile>() == null) continue;
             O_Tile tempTile = collider.GetComponent<O_Tile>();
-            Debug.Log(tempTile.gameObject.name);
+            //Debug.Log(tempTile.gameObject.name);
             if (!tempTile.isPermited) continue;
      
             if (tempTile.currentState == TileState.Normal || tempTile.currentState == TileState.InRange || tempTile.currentState == TileState.Selected) 
@@ -133,13 +141,14 @@ public class O_Tile : MonoBehaviour
         if (tileOnAimIndex!=999)
         {
             Transform targetTile = filtedTiles[tileOnAimIndex];
-            targetTile.GetComponent<O_Tile>().isPermited = false;
+            ChangeTileToDeselectbale(targetTile.GetComponent<O_Tile>());
             Sequence s = DOTween.Sequence();
             s.Append(transform.DORotate(Vector3.zero, 0.3f));
             s.AppendInterval(0.2f);
             s.Append(transform.DOMove(new Vector3(targetTile.position.x, transform.position.y, targetTile.position.z), 0.6f));
             s.AppendInterval(0.1f);
             s.Append(transform.DOMoveY(0.2f, 0.1f)).OnComplete(InstantiateHitVFX);
+            s.AppendCallback(() => DetectIsPlayerHitted());
         }
         else
         {
@@ -148,16 +157,60 @@ public class O_Tile : MonoBehaviour
             s.AppendInterval(0.2f);
             s.Append(transform.DOPunchScale(new Vector3(0.7f, 0.7f, 0.7f), 0.3f, 6, 0.3f));
             s.AppendInterval(0.3f);
+            s.AppendCallback(() => M_Audio.PlayOneShotAudio("Miss"));
             s.Append(transform.DOMoveY(-20, 3f));
         }
   
-        
-        //Debug.Log(inAreaObjects.Length);
-
         void InstantiateHitVFX()
         {
             GameObject go = Instantiate(M_BattelRepo.instance.vfx_DonutExplosive, transform.position, Quaternion.identity);
             go.GetComponent<ParticleSystem>().Play();
+            M_Audio.PlayOneShotAudio("Land");
+            Destroy(go, 5f);
+        }
+    }
+
+    void ChangeTileToDeselectbale(O_Tile targetTile)
+    {
+        targetTile.StateChangeTo(TileState.Normal);
+        targetTile.relatedPlayer.GetComponent<O_Player>().RemoveCurrentSelectedTile(targetTile);
+        targetTile.isPermited = false;
+        targetTile.currentState = TileState.OnStack;
+    }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        Debug.Log("Entered");
+    //        if(collision.gameObject.GetComponent<O_Player>().thisPlayer != belonging)
+    //        FindObjectOfType<M_BattleManager>().GameEnd(collision.gameObject.GetComponent<O_Player>().thisPlayer);
+    //    }
+    //}
+
+    private void DetectIsPlayerHitted()
+    {
+        Collider[] inAreaObjects = Physics.OverlapBox(transform.position, new Vector3(0.2f, 1, 0.2f));
+        //Debug.Log(inAreaObjects.Length);
+        List<Transform> filtedTiles = new List<Transform>();
+        foreach (Collider collider in inAreaObjects)
+        {
+            if (collider.GetComponent<O_Player>() != null)
+                if (collider.gameObject.GetComponent<O_Player>().thisPlayer != belonging)
+                {
+                    FindObjectOfType<M_BattleManager>().GameEnd(collider.gameObject.GetComponent<O_Player>().thisPlayer);
+                    Sequence s = DOTween.Sequence();
+                    s.Append(collider.transform.DOScale(1.3f, 0.1f));
+                    s.Append(collider.transform.DOScale(0f, 0.3f));
+                    InstantiateHitToDeathVFX();
+                }
+        }
+
+        void InstantiateHitToDeathVFX()
+        {
+            GameObject go = Instantiate(M_BattelRepo.instance.vfx_PlayerDeath, transform.position, Quaternion.identity);
+            go.GetComponent<ParticleSystem>().Play();
+            M_Audio.PlayOneShotAudio("Death");
             Destroy(go, 5f);
         }
     }

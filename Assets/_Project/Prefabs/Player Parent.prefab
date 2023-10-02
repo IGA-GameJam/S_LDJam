@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 5307295141651742850}
   - component: {fileID: 459401274797843028}
   - component: {fileID: 8258765653671563867}
+  - component: {fileID: 4466097154264488940}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +58,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7, y: 0.7, z: 0.1}
+  m_Size: {x: 0.7, y: 0.7, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5307295141651742850
 Rigidbody:
@@ -191,6 +192,34 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d45db09c-98b1-47b0-a566-92a0004d78f1
     m_ActionName: Action/Launch[/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 529a184f-77c5-4d2d-a613-b2d8c9045cf3
+    m_ActionName: Action/Right[/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1b1e53f4-57b0-46cf-92a1-6be9b0cc4393
+    m_ActionName: Action/Left[/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8258765653671563867}
+        m_TargetAssemblyTypeName: O_Player, Assembly-CSharp
+        m_MethodName: OnPressDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 84fa2dc2-8655-4421-9561-cb4729a1231a
+    m_ActionName: Action/Down[/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1277a6bc-a45a-4d0d-8fc3-f373d5312ff6
+    m_ActionName: Action/Up[/XInputControllerWindows/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Action
@@ -220,6 +249,18 @@ MonoBehaviour:
   curveStretchSpeed: 6
   mmf_Move: {fileID: 7738809498836155718}
   inRangeTiles: []
+--- !u!114 &4466097154264488940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4289572256301677237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8534fe4e48a440c4f922ab5eae44790f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5008873431820260467
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +726,10 @@ PrefabInstance:
     - target: {fileID: 4203525723039595216, guid: e285f195412f4554b911f2033e285b2c, type: 3}
       propertyPath: m_Name
       value: Pre_3Points Curve LR
+      objectReference: {fileID: 0}
+    - target: {fileID: 6218881663651667818, guid: e285f195412f4554b911f2033e285b2c, type: 3}
+      propertyPath: m_Positions.Array.size
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6218881663651667818, guid: e285f195412f4554b911f2033e285b2c, type: 3}
       propertyPath: m_Positions.Array.data[0].x
