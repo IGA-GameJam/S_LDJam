@@ -58,12 +58,12 @@ public class PaperArtGenerator : MonoBehaviour
 
         string meshName = planeTexture.name + ".asset";
         string materialName = planeTexture.name + ".mat";
-        // 保存Mesh到资源库
-        AssetDatabase.CreateAsset(mesh, $"{assetSavePath_Quad}/{meshName}");
-        AssetDatabase.SaveAssets();
-        // 保存Material到资源库
-        AssetDatabase.CreateAsset(material, $"{assetSavePath_Quad}/{materialName}");
-        AssetDatabase.SaveAssets();
+        //// 保存Mesh到资源库
+        //AssetDatabase.CreateAsset(mesh, $"{assetSavePath_Quad}/{meshName}");
+        //AssetDatabase.SaveAssets();
+        //// 保存Material到资源库
+        //AssetDatabase.CreateAsset(material, $"{assetSavePath_Quad}/{materialName}");
+        //AssetDatabase.SaveAssets();
     }
 
     public Material InitNewMaterial(Texture2D tempTexture)
@@ -99,12 +99,12 @@ public class PaperArtGenerator : MonoBehaviour
 
         string meshName = cubeTexture.name + ".asset";
         string materialName = cubeTexture.name + ".mat";
-        // 保存Mesh到资源库
-        AssetDatabase.CreateAsset(cubeMesh, $"{assetSavePath_Cube}/{meshName}");
-        AssetDatabase.SaveAssets();
-        // 保存Material到资源库
-        AssetDatabase.CreateAsset(material, $"{assetSavePath_Cube}/{materialName}");
-        AssetDatabase.SaveAssets();
+        //// 保存Mesh到资源库
+        //AssetDatabase.CreateAsset(cubeMesh, $"{assetSavePath_Cube}/{meshName}");
+        //AssetDatabase.SaveAssets();
+        //// 保存Material到资源库
+        //AssetDatabase.CreateAsset(material, $"{assetSavePath_Cube}/{materialName}");
+        //AssetDatabase.SaveAssets();
 
         Vector3[] GenerateVertices()
         {

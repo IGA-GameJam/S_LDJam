@@ -52,6 +52,9 @@ public class O_ButtonBinder : MonoBehaviour,IPointerClickHandler,IPointerEnterHa
                 if (isOpen) GuideBookStateChange(false);
                 else GuideBookStateChange(true);
                 break;
+            case ButtonType.Pause:
+                M_SceneTransition.instance.TriggerTransition(0);
+                break;
         }
     }
 
